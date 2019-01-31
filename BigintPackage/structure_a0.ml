@@ -287,11 +287,13 @@ open Signature_a0
 		|(NonNeg,l1) -> (Neg,l1)
 		|(Neg,l1) -> (NonNeg,l1);;	
 
+	(* Bigint to string conversion*)
 	let print_num b1 = match b1 with
 		| (_,[])-> raise Empty_list
 		| (Neg,l1) -> "-" ^ (listString l1)
 		| (NonNeg,l1) -> (listString l1);;
 
+	(* Integer to bigint conversion *)
 	let mk_big n = match n with
 		| x -> if checkSign (x) = "Neg" then (Neg, (cleanList (intToList (absInt x)))) else (NonNeg, (cleanList (intToList x)));;
 
